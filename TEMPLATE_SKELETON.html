@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{BUSINESS_NAME}} — {{CITY}}, {{STATE}}</title>
+    <style>
+        :root { --primary: #e63946; --dark: #1d3557; --light: #f1faee; --accent: #457b9d; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui, -apple-system, sans-serif; color: var(--dark); line-height: 1.6; }
+        header { background: linear-gradient(135deg, var(--dark), var(--accent)); color: white; padding: 3rem 1rem; text-align: center; }
+        header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+        header p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 1.5rem; }
+        .cta { display: inline-block; background: var(--primary); color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1.1rem; }
+        section { padding: 2rem 1rem; max-width: 900px; margin: 0 auto; }
+        section h2 { font-size: 1.6rem; margin-bottom: 1rem; color: var(--dark); }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+        .service-card { background: var(--light); padding: 1.2rem; border-radius: 8px; text-align: center; }
+        .reviews { display: grid; gap: 1rem; }
+        .review-card { background: #fff; border: 1px solid #e0e0e0; padding: 1rem; border-radius: 8px; }
+        .stars { color: #f4a261; }
+        footer { background: var(--dark); color: white; text-align: center; padding: 1.5rem 1rem; font-size: 0.9rem; }
+        .badge { display: inline-block; background: var(--primary); color: white; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.85rem; margin-top: 0.5rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <span class="badge">{{EMERGENCY_BADGE}}</span>
+        <h1>{{HERO_HEADLINE}}</h1>
+        <p>{{HERO_SUBHEADLINE}}</p>
+        <a href="tel:{{PHONE}}" class="cta">{{CTA_BUTTON_TEXT}}</a>
+    </header>
+
+    <section>
+        <h2>Our Plumbing Services</h2>
+        <div class="services-grid">
+            {{SERVICES_LIST}}
+        </div>
+    </section>
+
+    <section>
+        <h2>About {{BUSINESS_NAME}}</h2>
+        <p>{{ABOUT_TEXT}}</p>
+        <p style="margin-top:1rem"><strong>📍</strong> {{ADDRESS}}, {{CITY}}, {{STATE}} {{ZIP}}</p>
+        <p><strong>🕐</strong> {{BUSINESS_HOURS}}</p>
+        <p><strong>📞</strong> <a href="tel:{{PHONE}}">{{PHONE}}</a></p>
+    </section>
+
+    <section>
+        <h2>What Our Customers Say</h2>
+        <div class="reviews">
+            {{REVIEWS_SECTION}}
+        </div>
+        <p style="text-align:center;margin-top:1rem;font-weight:bold">{{SOCIAL_PROOF_TEXT}}</p>
+    </section>
+
+    <footer>
+        <p>License: {{LICENSE_NUMBER}}</p>
+        <p>{{FOOTER_TEXT}}</p>
+    </footer>
+</body>
+</html>
