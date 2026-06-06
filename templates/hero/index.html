@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{BUSINESS_NAME}} — Plumber in {{CITY}}, {{STATE}}</title>
+<meta name="description" content="{{HERO_SUBHEADLINE}} {{BUSINESS_NAME}}, licensed plumbers in {{CITY}}, {{STATE}}. Call {{PHONE}} or book online.">
+<style>
+:root{
+  --ink:#0c1726;--mut:#5a6b7d;--line:#e4e9f0;--bg:#fff;--soft:#f3f6fb;--acc:#f59e0b;--acc2:#0ea5b7;--ok:#16a34a;
+  --hero:url('https://images.unsplash.com/photo-1521207418485-99c705420785?auto=format&fit=crop&w=1900&q=70');
+  --font:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--radius:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-weight:800;line-height:1.1;letter-spacing:-.02em}
+.btn{display:inline-flex;align-items:center;gap:8px;justify-content:center;padding:15px 26px;border-radius:999px;font-weight:700;font-size:1rem;cursor:pointer;border:2px solid transparent;background:var(--acc);color:#1a1205;transition:.18s;min-height:52px}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px -10px rgba(245,158,11,.6)}
+.btn.line{background:transparent;border-color:#fff;color:#fff}
+.btn.line:hover{background:#fff;color:var(--ink);box-shadow:none}
+.btn.dark{background:var(--ink);color:#fff}
+.sub{color:var(--mut);font-size:1.05rem}
+.eyebrow{display:inline-block;text-transform:uppercase;letter-spacing:.14em;font-size:.74rem;font-weight:800;color:var(--acc)}
+
+/* hero */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;color:#fff;background:linear-gradient(180deg,rgba(8,16,30,.55),rgba(8,16,30,.78)),var(--hero) center/cover fixed}
+.hero .top{position:absolute;top:0;left:0;right:0}
+.htop{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brand{font-weight:800;font-size:1.18rem;display:flex;gap:10px;align-items:center}
+.brand .b{width:38px;height:38px;border-radius:10px;background:var(--acc);color:#1a1205;display:grid;place-items:center;font-size:1.1rem}
+.hlinks{display:none;gap:26px;color:rgba(255,255,255,.85);font-weight:600}
+.hlinks a:hover{color:#fff}
+.hero .inner{position:relative;padding:120px 0 90px;max-width:760px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.pill{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);padding:7px 13px;border-radius:999px;font-size:.8rem;font-weight:700}
+.pill.em{background:var(--acc);color:#1a1205;border-color:var(--acc)}
+.hero h1{font-size:clamp(2.5rem,7vw,4.6rem)}
+.hero p.lead{font-size:1.2rem;color:rgba(255,255,255,.92);margin-top:16px;max-width:600px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+.scroll{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.7);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+
+/* strip */
+.strip{background:var(--ink);color:#fff}
+.strip .wrap{display:flex;flex-wrap:wrap;gap:18px 40px;justify-content:center;padding:18px 20px;font-weight:700;font-size:.92rem}
+.strip span{display:flex;align-items:center;gap:8px;color:#cdd8e6}
+.strip b{color:var(--acc)}
+
+section.pad{padding:66px 0}
+.center{text-align:center;max-width:680px;margin:0 auto 36px}
+.center h2{font-size:clamp(1.7rem,4.4vw,2.5rem);margin-top:10px}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.gallery div{aspect-ratio:1;border-radius:14px;background:#ddd center/cover;box-shadow:0 10px 24px -14px rgba(12,23,38,.4)}
+
+.svc-grid{list-style:none;display:grid;gap:18px;grid-template-columns:1fr}
+.svc-grid>*{list-style:none;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:0 12px 30px -22px rgba(12,23,38,.5);transition:.18s;border-top:4px solid var(--acc)}
+.svc-grid>*:hover{transform:translateY(-5px);box-shadow:0 20px 40px -22px rgba(12,23,38,.55)}
+.svc-grid h3,.svc-grid b,.svc-grid strong{display:block;font-size:1.15rem;margin-bottom:5px}
+
+.feat{position:relative;color:#fff;border-radius:24px;overflow:hidden;padding:54px 30px;background:linear-gradient(120deg,rgba(8,16,30,.78),rgba(8,16,30,.45)),url('https://images.unsplash.com/photo-1638799869566-b17fa794c4de?auto=format&fit=crop&w=1500&q=70') center/cover}
+.feat h2{font-size:clamp(1.7rem,4vw,2.4rem);max-width:18ch}
+.feat .clist{list-style:none;margin-top:18px;display:grid;gap:10px}
+.feat .clist li{display:flex;gap:10px;align-items:center;font-weight:600}
+.feat .clist i{flex:none;width:24px;height:24px;border-radius:50%;background:var(--acc);color:#1a1205;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:.8rem}
+
+.band{background:var(--soft)}
+.two{display:grid;gap:26px;grid-template-columns:1fr;padding:58px 20px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 12px 30px -24px rgba(12,23,38,.5);margin-top:14px}
+.form label{display:block;font-weight:700;font-size:.85rem;margin-bottom:12px}
+.form input,.form select{width:100%;margin-top:6px;padding:12px 13px;border:1.5px solid var(--line);border-radius:12px;font:inherit;background:#fff}
+.form input:focus,.form select:focus{outline:none;border-color:var(--acc)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.estout{margin-top:14px;font-weight:800;color:var(--ink)}
+.estout small{display:block;color:var(--mut);font-weight:500;margin-top:4px}
+.ok{background:#e7f6ee;color:#166534;border-radius:12px;padding:18px;text-align:center;font-weight:700}
+
+.reviews{display:grid;gap:18px;grid-template-columns:1fr}
+.reviews>*{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:0 12px 30px -24px rgba(12,23,38,.5)}
+.stars{color:var(--acc);letter-spacing:2px;font-size:1.1rem}
+.proof{text-align:center;margin-top:22px;font-weight:800;color:var(--ink)}
+
+.cta-final{position:relative;color:#fff;text-align:center;padding:80px 24px;background:linear-gradient(rgba(8,16,30,.7),rgba(8,16,30,.85)),var(--hero) center/cover}
+.cta-final h2{font-size:clamp(1.9rem,5vw,3rem)}
+.cta-final .cta{display:flex;gap:14px;justify-content:center;margin-top:22px;flex-wrap:wrap}
+.mapwrap{margin-top:0}
+.mapwrap iframe{width:100%;height:320px;border:0;display:block}
+footer{background:var(--ink);color:#aab8c8;padding:48px 0 92px}
+.fcols{display:grid;gap:22px;grid-template-columns:1fr}
+.fcols h4{color:#fff;margin-bottom:8px}
+.fcols a:hover{color:#fff}
+.fbtm{border-top:1px solid rgba(255,255,255,.12);margin-top:26px;padding-top:16px;font-size:.84rem}
+
+.chatbtn{position:fixed;right:16px;bottom:80px;z-index:50;width:58px;height:58px;border-radius:50%;background:var(--acc);color:#1a1205;font-size:1.5rem;border:0;cursor:pointer;box-shadow:0 14px 30px -10px rgba(245,158,11,.6)}
+.chatpanel{position:fixed;right:16px;bottom:80px;z-index:51;width:min(92vw,360px);height:min(70vh,520px);background:#fff;border-radius:18px;box-shadow:0 24px 60px -16px rgba(8,16,30,.5);display:none;flex-direction:column;overflow:hidden}
+.chatpanel.open{display:flex}
+.chattop{background:var(--ink);color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center}
+.chattop button{background:rgba(255,255,255,.18);color:#fff;border:0;width:32px;height:32px;border-radius:8px;cursor:pointer}
+.chatlog{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:8px;background:var(--soft)}
+.m{max-width:85%;padding:10px 13px;border-radius:14px;font-size:.92rem}
+.m.b{background:#fff;border:1px solid var(--line);align-self:flex-start}
+.m.u{background:var(--acc);color:#1a1205;align-self:flex-end;font-weight:600}
+.quick{display:flex;flex-wrap:wrap;gap:6px;padding:8px 12px;background:var(--soft)}
+.q{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:7px 12px;font-size:.82rem;font-weight:700;cursor:pointer;color:var(--ink)}
+.chatin{display:flex;gap:6px;padding:10px;border-top:1px solid var(--line)}
+.chatin input{flex:1;border:1.5px solid var(--line);border-radius:999px;padding:10px 13px;font:inherit}
+.chatin button{width:42px;border:0;border-radius:50%;background:var(--acc);color:#1a1205;cursor:pointer}
+.chatin #chatMic.on{background:#dc2626;color:#fff}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:45;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line)}
+
+@media(min-width:760px){.gallery{grid-template-columns:repeat(4,1fr)}.svc-grid{grid-template-columns:repeat(3,1fr)}.two{grid-template-columns:1fr 1fr}.reviews{grid-template-columns:repeat(3,1fr)}.fcols{grid-template-columns:2fr 1fr 1fr}.feat{padding:70px 50px}}
+@media(min-width:940px){.hlinks{display:flex}.callbar{display:none}.chatbtn,.chatpanel{bottom:24px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}.hero,.cta-final{background-attachment:scroll}}
+@media(hover:none){.hero{background-attachment:scroll}}
+
+/* ===== Instant Cost Estimator ===== */
+.est-cats{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.est-cat{flex:1 1 30%;min-width:92px;display:flex;align-items:center;justify-content:center;gap:5px;text-align:center;padding:12px 8px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font-weight:700;font-size:.84rem;cursor:pointer;transition:.15s;line-height:1.15}
+.est-cat:hover{border-color:var(--acc)}
+.est-cat.active{background:var(--acc);border-color:var(--acc);color:#1a1205}
+.est-q{display:grid;gap:12px;margin:0 0 14px}
+.est-go{background:var(--acc);color:#1a1205;border-color:transparent}
+.est-result{text-align:center;padding:18px;border:1px dashed var(--acc);border-radius:12px;background:#fff7ea;margin-top:4px}
+.est-label{font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mut);font-weight:700}
+.est-range{font-size:clamp(1.7rem,6vw,2.3rem);font-weight:800;color:var(--ink);margin:4px 0}
+.est-note{font-size:.76rem;color:var(--mut);margin-bottom:12px}
+.est-cta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.est-cta .btn{flex:1 1 auto;min-width:150px}
+.est-warn{color:#c0341d;font-weight:600;font-size:.9rem}
+@media(max-width:520px){.est-cat{flex:1 1 45%;font-size:.8rem;min-width:0}.est-cta .btn{min-width:120px}}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="top"><div class="wrap htop">
+    <div class="brand"><span class="b">◊</span>{{BUSINESS_NAME}}</div>
+    <nav class="hlinks"><a href="#services">Services</a><a href="#about">About</a><a href="#reviews">Reviews</a><a href="#book">Book</a></nav>
+    <a class="btn" href="tel:{{PHONE}}" style="padding:10px 18px;min-height:auto">📞 Call</a>
+  </div></div>
+  <div class="wrap"><div class="inner">
+    <div class="pills"><span class="pill em">⚡ {{EMERGENCY_BADGE}}</span><span class="pill">Licensed &amp; Insured</span><span class="pill">★ {{SOCIAL_PROOF_TEXT}}</span></div>
+    <h1>{{HERO_HEADLINE}}</h1>
+    <p class="lead">{{HERO_SUBHEADLINE}}</p>
+    <div class="cta"><a class="btn" href="tel:{{PHONE}}">📞 {{CTA_BUTTON_TEXT}}</a><a class="btn line" href="#book">Book online</a></div>
+  </div></div>
+  <div class="scroll">↓ Scroll</div>
+</section>
+
+<div class="strip"><div class="wrap">
+  <span><b>★</b> {{SOCIAL_PROOF_TEXT}}</span>
+  <span><b>⏱</b> Same-day service</span>
+  <span><b>⚡</b> {{EMERGENCY_BADGE}}</span>
+  <span><b>📍</b> {{CITY}}, {{STATE}}</span>
+</div></div>
+
+<section class="pad" id="services"><div class="wrap">
+  <div class="center"><span class="eyebrow">What we do</span><h2>Plumbing services in {{CITY}}</h2><p class="sub">Reliable repairs and installs, done right the first time.</p></div>
+  <ul class="svc-grid">{{SERVICES_LIST}}</ul>
+  <div class="gallery" style="margin-top:26px">
+    <div style="background-image:url('https://images.unsplash.com/photo-1521207418485-99c705420785?auto=format&fit=crop&w=700&q=70')"></div>
+    <div style="background-image:url('https://images.unsplash.com/photo-1602028915047-37269d1a73f7?auto=format&fit=crop&w=700&q=70')"></div>
+    <div style="background-image:url('https://images.unsplash.com/photo-1661045327753-3f2a047d00a4?auto=format&fit=crop&w=700&q=70')"></div>
+    <div style="background-image:url('https://images.unsplash.com/photo-1638799869566-b17fa794c4de?auto=format&fit=crop&w=700&q=70')"></div>
+  </div>
+</div></section>
+
+<section class="pad" id="about"><div class="wrap">
+  <div class="feat">
+    <span class="eyebrow" style="color:var(--acc)">About {{BUSINESS_NAME}}</span>
+    <h2 style="margin-top:10px">Trusted local plumbers who treat your home with respect</h2>
+    <p style="margin-top:14px;color:rgba(255,255,255,.9);max-width:60ch">{{ABOUT_TEXT}}</p>
+    <ul class="clist">
+      <li><i>✓</i> Licensed &amp; insured — {{LICENSE_NUMBER}}</li>
+      <li><i>✓</i> Upfront pricing — {{BUSINESS_HOURS}}</li>
+      <li><i>✓</i> {{ADDRESS}}, {{CITY}}, {{STATE}} {{ZIP}}</li>
+    </ul>
+    <a class="btn" href="#book" style="margin-top:22px">Book a visit</a>
+  </div>
+</div></section>
+
+<section class="band"><div class="wrap two">
+  <div>
+    <h2 style="font-size:clamp(1.6rem,4vw,2.2rem)">Book online</h2>
+    <p class="sub">Pick a day and window — we’ll confirm by phone. Same-day on most jobs.</p>
+    <div id="bookWrap"><form id="bookForm" class="card form">
+      <div class="row"><label>Name<input name="name" required></label><label>Phone<input name="phone" type="tel" required></label></div>
+      <div class="row"><label>Date<input name="date" type="date"></label><label>Time<select name="time"><option>8–10 AM</option><option>10–12 PM</option><option>12–2 PM</option><option>2–4 PM</option><option>4–6 PM</option></select></label></div>
+      <label>Service<select name="svc"><option>Drain Cleaning</option><option>Water Heater</option><option>Leak Repair</option><option>Toilet / Faucet</option><option>Other</option></select></label>
+      <button class="btn dark" type="submit" style="width:100%">Request my booking</button>
+    </form></div>
+  </div>
+  <div>
+    <h2 style="font-size:clamp(1.6rem,4vw,2.2rem)">💰 Instant Plumbing Cost Estimator</h2>
+    <p class="sub">Get a rough estimate before we arrive — transparent pricing, no surprises</p>
+    <div class="card form" id="estimate">
+      <div class="est-cats" id="estCats">
+            <button type="button" class="est-cat" data-cat="drain">🚿 Drain</button>
+            <button type="button" class="est-cat" data-cat="heater">🔥 Water Heater</button>
+            <button type="button" class="est-cat" data-cat="leak">💧 Pipe Leak</button>
+            <button type="button" class="est-cat" data-cat="toilet">🚽 Toilet</button>
+            <button type="button" class="est-cat" data-cat="sewer">🏠 Sewer</button>
+          </div>
+          <div id="estQ" class="est-q"></div>
+      <button class="btn" id="estBtn" type="button" style="width:100%">See my estimate</button>
+      <div id="estOut" class="estout"></div>
+      <a class="btn dark" href="tel:{{PHONE}}" style="width:100%;margin-top:10px">📞 Call for exact quote</a>
+    </div>
+  </div>
+</div></section>
+
+<section class="pad" id="reviews"><div class="wrap">
+  <div class="center"><span class="eyebrow">Reviews</span><h2>Loved by neighbors in {{CITY}}</h2></div>
+  <div class="reviews">{{REVIEWS_SECTION}}</div>
+  <p class="proof">{{SOCIAL_PROOF_TEXT}}</p>
+</div></section>
+
+<section class="cta-final">
+  <h2>Need a plumber now?</h2>
+  <p style="margin-top:10px;color:rgba(255,255,255,.9)">Call {{BUSINESS_NAME}} or book online — we’ll take it from here.</p>
+  <div class="cta"><a class="btn" href="tel:{{PHONE}}">📞 {{PHONE}}</a><a class="btn line" href="#book">Book online</a></div>
+</section>
+<div class="mapwrap">{{MAP_EMBED}}</div>
+
+<footer><div class="wrap fcols">
+  <div><div class="brand" style="color:#fff"><span class="b">◊</span>{{BUSINESS_NAME}}</div><p style="margin-top:10px">{{HERO_SUBHEADLINE}}</p></div>
+  <div><h4>Contact</h4><p>📞 <a href="tel:{{PHONE}}">{{PHONE}}</a></p><p>✉️ <a href="mailto:{{EMAIL}}">{{EMAIL}}</a></p><p>📍 {{ADDRESS}}, {{CITY}}, {{STATE}} {{ZIP}}</p></div>
+  <div><h4>Hours</h4><p>{{BUSINESS_HOURS}}</p><p style="margin-top:8px">License {{LICENSE_NUMBER}}</p></div>
+</div><div class="wrap fbtm">{{FOOTER_TEXT}}</div></footer>
+
+<button id="chatBtn" class="chatbtn" aria-label="Open chat">💬</button>
+<div id="chatPanel" class="chatpanel" role="dialog" aria-label="Chat with {{BUSINESS_NAME}}">
+  <div class="chattop"><strong>{{BUSINESS_NAME}}</strong><button id="chatClose" aria-label="Close chat">✕</button></div>
+  <div id="chatLog" class="chatlog"><div class="m b">👋 Hi! How can we help today? Tap below or ask a question.</div></div>
+  <div class="quick"><a class="q" href="tel:{{PHONE}}">📞 Call now</a><button class="q" data-q="Book a visit">Book a visit</button><button class="q" data-q="Get an estimate">Estimate</button><button class="q" data-q="Hours">Hours</button></div>
+  <form id="chatForm" class="chatin"><input id="chatIn" placeholder="Type a message…" autocomplete="off" aria-label="Message"><button id="chatMic" type="button" aria-label="Voice">🎤</button><button type="submit" aria-label="Send">➤</button></form>
+  <span id="hoursData" hidden>{{BUSINESS_HOURS}}</span>
+</div>
+<div class="callbar"><a href="tel:{{PHONE}}" class="btn">📞 Call</a><a href="#book" class="btn dark">📅 Book</a></div>
+
+<script>
+(function(){
+  var bf=document.getElementById('bookForm');
+  if(bf)bf.addEventListener('submit',function(e){e.preventDefault();document.getElementById('bookWrap').innerHTML='<div class="ok">✓ Request received — we’ll call to confirm your time window.</div>';});
+  var EST={drain:{q:[{l:'Type of clog',o:[['Kitchen/Bathroom sink',120,250],['Shower/tub drain',140,290],['Main line clog',250,650],['Toilet clog',120,260]]},{l:'Severity',o:[['Slow draining',1],['Standing water',1.2],['Completely blocked',1.45],['Backing up / flooding',1.85]]}]},heater:{q:[{l:'Service needed',o:[['Repair (not heating / leaking)',180,600],['Replace existing unit',1100,2200],['Install tankless system',2500,5500],['Flush & maintenance',100,250]]},{l:'Unit type',o:[['Gas',1],['Electric',0.95],['Tankless',1.25]]}]},leak:{q:[{l:'Leak location',o:[['Under sink',150,400],['Inside wall',350,900],['Slab/foundation leak',800,3500],['Yard/underground',600,2500],['Burst pipe (gushing)',400,1500]]},{l:'Urgency',o:[['Emergency (ASAP)',1.5],['Today',1.2],['This week',1]]}]},toilet:{q:[{l:'Issue',o:[['Clogged toilet',120,250],['Constantly running',120,300],['Leaking at base',150,400],['Install new toilet',200,600],["Won't flush properly",130,350]]}]},sewer:{q:[{l:'Issue',o:[['Sewage backing up',300,800],['Slow drains throughout',250,600],['Sewage smell in yard',300,900],['Camera inspection only',150,400],['Line needs replacement',3000,12000]]}]}};
+  var estCat=null;
+  function estRnd(n){return n>=1000?Math.round(n/50)*50:Math.round(n/5)*5;}
+  function estMoney(n){return '$'+estRnd(n).toLocaleString('en-US');}
+  function estBuild(){var q=document.getElementById('estQ');if(!q)return;q.innerHTML='';var cfg=EST[estCat];if(!cfg)return;cfg.q.forEach(function(qq,i){var h='<label>'+qq.l+'<select data-qi="'+i+'"><option value="">-- Select --</option>'+qq.o.map(function(o,j){return '<option value="'+j+'">'+o[0]+'</option>';}).join('')+'</select></label>';var w=document.createElement('div');w.innerHTML=h;q.appendChild(w.firstChild);});}
+  function estCalc(){var o=document.getElementById('estOut');if(!o)return;var cfg=EST[estCat];if(!cfg){o.innerHTML='<span class="est-warn">Pick a category above to start.</span>';return;}var sels=document.querySelectorAll('#estQ select'),min=0,max=0,mult=1,ok=true;sels.forEach(function(s){var v=s.value;if(v===''){ok=false;return;}var opt=cfg.q[+s.getAttribute('data-qi')].o[+v];if(opt.length===3){min=opt[1];max=opt[2];}else{mult*=opt[1];}});if(!ok){o.innerHTML='<span class="est-warn">Please answer each question above.</span>';return;}min*=mult;max*=mult;o.innerHTML='<div class="est-result"><div class="est-label">Estimated range</div><div class="est-range">'+estMoney(min)+' – '+estMoney(max)+'</div><div class="est-note">Ballpark only — final price confirmed on-site before any work begins. Not a quote.</div><div class="est-cta"><a class="btn est-go" href="#book">Book this job</a><a class="btn" href="tel:{{PHONE}}">📞 Call for exact quote</a></div></div>';}
+  document.querySelectorAll('.est-cat').forEach(function(b){b.addEventListener('click',function(){estCat=b.getAttribute('data-cat');document.querySelectorAll('.est-cat').forEach(function(x){x.classList.remove('active');});b.classList.add('active');estBuild();var o=document.getElementById('estOut');if(o)o.innerHTML='';});});
+  var eb=document.getElementById('estBtn');if(eb)eb.addEventListener('click',estCalc);
+  var ec=document.querySelector('.est-cat[data-cat="drain"]');if(ec)ec.click();
+  var cb=document.getElementById('chatBtn'),cp=document.getElementById('chatPanel'),cc=document.getElementById('chatClose');
+  if(cb){cb.onclick=function(){cp.classList.add('open');cb.style.display='none';};cc.onclick=function(){cp.classList.remove('open');cb.style.display='';};}
+  function add(t,w){var l=document.getElementById('chatLog'),m=document.createElement('div');m.className='m '+w;m.textContent=t;l.appendChild(m);l.scrollTop=l.scrollHeight;}
+  function route(q){add(q,'u');var r;if(/book/i.test(q)){document.getElementById('book').scrollIntoView({behavior:'smooth'});r='Opening the booking form — pick any time that works.';}else if(/estimate|price|cost|quote/i.test(q)){document.getElementById('estimate').scrollIntoView({behavior:'smooth'});r='Let’s get a ballpark — choose a service in the estimate box.';}else if(/hour|open|close/i.test(q)){r=(document.getElementById('hoursData')||{}).textContent||'Call us for hours.';}else if(/area|where|serve/i.test(q)){r='We serve {{CITY}}, {{STATE}} and nearby. Want to confirm your address?';}else{r='I can help you book, get an estimate, or call. Tap a button below 👇';}setTimeout(function(){add(r,'b');},280);}
+  document.querySelectorAll('[data-q]').forEach(function(b){b.onclick=function(){route(b.getAttribute('data-q'));};});
+  var cf=document.getElementById('chatForm');
+  if(cf)cf.addEventListener('submit',function(e){e.preventDefault();var i=document.getElementById('chatIn'),t=i.value.trim();if(!t)return;i.value='';route(t);});
+  var SR=window.SpeechRecognition||window.webkitSpeechRecognition,mic=document.getElementById('chatMic');
+  if(SR&&mic){var rec=new SR();rec.lang='en-US';mic.onclick=function(){try{rec.start();mic.classList.add('on');}catch(e){}};rec.onresult=function(e){document.getElementById('chatIn').value=e.results[0][0].transcript;mic.classList.remove('on');};rec.onerror=function(){mic.classList.remove('on');};rec.onend=function(){mic.classList.remove('on');};}else if(mic){mic.style.display='none';}
+})();
+</script>
+</body>
+</html>
